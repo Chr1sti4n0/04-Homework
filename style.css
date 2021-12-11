@@ -1,0 +1,21 @@
+* {
+    text-align: center;
+    margin-top: 20px;
+}
+
+h2 {
+    color: rgb(66, 21, 109);
+    font-size: 20px;
+    display: inline-block;
+    padding: 50px 50px 0px 50px;
+}
+
+#generate {
+    background-color: rgb(142, 99, 182);
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px blueviolet;
+}
+
+#generate:hover {
+    box-shadow: 3px 2px 2px rgb(107, 104, 109)
+}
