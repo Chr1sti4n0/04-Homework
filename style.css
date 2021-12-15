@@ -33,3 +33,7 @@ h3 {
 .choices {
     display: none;
 } 
+
+.initials-prompt {
+    display: none;
+}

@@ -9,6 +9,7 @@ var button3 = document.querySelector(".btn3");
 var button4 = document.querySelector(".btn4");
 var choicesContainer = document.querySelector(".choices");
 var answerButtons = document.querySelector(".buttons");
+var initialsPrompt = document.querySelector(".initials-prompt");
 var answerFeedback = document.querySelector(".answerFeedback");
 var currentQuestion = 0;
 var quizQuestions = [
@@ -109,6 +110,7 @@ function quizTimer() {
 function completionMessage() {
     timeEl.textContent = "Quiz is Complete!\n Your score is: " + score;
     choicesContainer.classList.add('choices');
+    initialsPrompt.classList.remove('initials-prompt');
 }
 
 
