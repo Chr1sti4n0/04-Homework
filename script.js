@@ -92,7 +92,7 @@ function displayQuestion() {
 
 
 //90 second timer function
-var timeLeft = 25;
+var timeLeft = 90;
 
 function quizTimer() {
     var timeInterval = setInterval(function() {
@@ -102,6 +102,7 @@ function quizTimer() {
         if(timeLeft === 0) {
             clearInterval(timeInterval);
             completionMessage();
+            recordScore();
         }
 
     }, 1000);
@@ -124,7 +125,8 @@ function display(element) {
     element.style.display = "block";
  }
 
- //Create function to record scores
-//  function recordScore() {
-
-//  }
+//Create function to record scores
+function recordScore() {
+    var savedScore = localStorage.getItem("score");
+    score.textContent = savedScore; 
+  }

@@ -28,6 +28,10 @@ h3 {
 .buttons {
     display: flex;
     flex-direction: row;
+    color: rgb(66, 21, 109);
+    font-size: 20px;
+    display: inline-block;
+    padding: 50px 50px 0px 50px;
 }
 
 .choices {
@@ -36,4 +40,8 @@ h3 {
 
 .initials-prompt {
     display: none;
+}
+
+.view-score {
+    margin-top: 200px;
 }
