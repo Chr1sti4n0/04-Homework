@@ -23,14 +23,24 @@ var quizQuestions = [
         correct: "0"
     },
     {
-        question: "What color is the sky_____.",
+        question: "A class that was created in HTML, can be referenced in CSS using which of the following symbols:",
         answers: [
-            {text: '0',},
-            {text: '1',},
-            {text: '2',},
-            {text: '3',}
+            {text: '!',},
+            {text: '?',},
+            {text: '$',},
+            {text: '.',}
         ],
-        correct: "0"
+        correct: "."
+    },
+    {
+        question: "An ID that was created in HTML, can be referenced in CSS using which of the following symbols:",
+        answers: [
+            {text: '.',},
+            {text: '*',},
+            {text: '#'},
+            {text: '$',}
+        ],
+        correct: "#"
     }
 ]
 var score = 0;
@@ -42,6 +52,7 @@ startButton.addEventListener('click', function () {
     startQuiz();
 });
 
+//Event Listener to evaluate the users selection, move onto the next question, add points to the score and subtract 10 seconds if necessary 
 answerButtons.addEventListener('click', function (event) {
     var userChoice = event.target.innerText;
     if (userChoice === quizQuestions[currentQuestion].correct) {
@@ -68,6 +79,7 @@ function startQuiz() {
 function displayQuestion() {
     if (currentQuestion === quizQuestions.length) {
         choicesContainer.classList.add('choices');
+        timeLeft = 1;
         return;
     }
     questionEl.textContent = quizQuestions[currentQuestion].question;
@@ -75,22 +87,11 @@ function displayQuestion() {
     button2.textContent= quizQuestions[currentQuestion].answers[1].text;
     button3.textContent= quizQuestions[currentQuestion].answers[2].text;
     button4.textContent= quizQuestions[currentQuestion].answers[3].text;
-    //Add IF statement to evaluate user selection (correct/incorrect)
-    //Move onto next question
 }
 
 
-
-//For loop to go through questions in array
-// for(var i=0; i < quizQuestions.length; i++) {
-//     //check the users selection
-//     var selection = console.log(quizQuestions[i].question);
-// }
-
-
-
 //90 second timer function
-var timeLeft = 90;
+var timeLeft = 25;
 
 function quizTimer() {
     var timeInterval = setInterval(function() {
@@ -106,15 +107,10 @@ function quizTimer() {
 }
 
 function completionMessage() {
-    timeEl.textContent = "Quiz is Complete!\n Your score is:";
+    timeEl.textContent = "Quiz is Complete!\n Your score is: " + score;
     choicesContainer.classList.add('choices');
 }
 
-// document.getElementById("generate").addEventListener("click", function () {
-//     hide(home);
-//     hide(startButton);
-//     display(quizTimer);
-// });
 
 //Makes the elements hide
 function hide(element) {
@@ -125,3 +121,8 @@ function hide(element) {
 function display(element) {
     element.style.display = "block";
  }
+
+ //Create function to record scores
+//  function recordScore() {
+
+//  }
