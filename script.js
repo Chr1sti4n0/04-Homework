@@ -44,8 +44,8 @@ var quizQuestions = [
         correct: "#"
     }
 ]
+//Variable to track score
 var score = 0;
-
 
 //When Start Button is clicked the quizTimer function will begin
 startButton.addEventListener('click', function () {
@@ -68,7 +68,7 @@ answerButtons.addEventListener('click', function (event) {
     displayQuestion();
 });
 
-//Function to start the Quiz
+//Functions to run when quiz is started
 function startQuiz() {
     //Removes the CSS set in choices ID  
     home.classList.add('choices');
@@ -78,6 +78,7 @@ function startQuiz() {
 
 //Function to display each question
 function displayQuestion() {
+    //Choices/Questions will be hidden when all of the questions have been answered
     if (currentQuestion === quizQuestions.length) {
         choicesContainer.classList.add('choices');
         timeLeft = 1;
@@ -102,12 +103,13 @@ function quizTimer() {
         if(timeLeft === 0) {
             clearInterval(timeInterval);
             completionMessage();
-            recordScore();
+            //recordScore();
         }
 
     }, 1000);
 }
 
+//When the quiz is complete the score will be displayed, choices class will be hidden and the initials prompt will appear
 function completionMessage() {
     timeEl.textContent = "Quiz is Complete!\n Your score is: " + score;
     choicesContainer.classList.add('choices');
@@ -125,8 +127,11 @@ function display(element) {
     element.style.display = "block";
  }
 
+//  let recordScore = JSON.stringify(score);
+//  localStorage.setItem("score", recordScore);
+//  console.log(localStorage);
 //Create function to record scores
-function recordScore() {
-    var savedScore = localStorage.getItem("score");
-    score.textContent = savedScore; 
-  }
+// function recordScore() {
+//     var savedScore = localStorage.getItem("score");
+//     score.textContent = savedScore; 
+//   }
